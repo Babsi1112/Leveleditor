@@ -9,11 +9,19 @@ public class ImportText : MonoBehaviour {
 	public Transform floor_valid;
 	public Transform floor_obstacle;
 	//public Transform floor_checkpoint;
-	
+	public Transform bomb;
+	public Transform wall;
+	public Transform coin;
+	public Transform finish;
+
 	public const string sfloor_valid = "0";
 	public const string sfloor_obstacle = "1";
 	public const string sfloor_checkpoint = "2";
 	public const string sstart = "S";
+	public const string sbomb = "b";
+	public const string scoin = "c";
+	public const string swall = "W";
+	public const string sfinish = "Z";
 
 	// Use this for initialization
 	void Start () {
@@ -28,11 +36,25 @@ public class ImportText : MonoBehaviour {
 					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
 					Instantiate (player, new Vector3 (x, -y, 0), Quaternion.identity);
 					break;
+				case sbomb:
+					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (bomb, new Vector3 (x, -y, 0), Quaternion.identity);
+					break;
+				case scoin:
+					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (coin, new Vector3 (x, -y, 0), Quaternion.identity);
+					break;
 				case sfloor_valid:
 					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
 					break;
+				case sfinish:
+					Instantiate (finish, new Vector3 (x, -y, 0), Quaternion.identity);
+					break;
 				case sfloor_obstacle:
 					Instantiate (floor_obstacle, new Vector3 (x, -y, 0), Quaternion.identity);
+					break;
+				case swall:
+					Instantiate (wall, new Vector3 (x, -y, 0), Quaternion.identity);
 					break;
 				case sfloor_checkpoint:
 					//Instantiate (floor_checkpoint, new Vector3 (x, -y, 0), Quaternion.identity);
