@@ -22,4 +22,15 @@ public class Player : MonoBehaviour {
 			transform.position -= new Vector3 (0.0f,speed * Time.deltaTime, 0.0f);
 
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.gameObject.CompareTag("coin"))
+		{
+			Destroy(other.gameObject);
+		}
+		if(other.gameObject.CompareTag("bomb"))
+		{
+			Destroy(other.gameObject);
+		}
+	}
 }

@@ -147,7 +147,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.38000011
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -206,6 +206,7 @@ MonoBehaviour:
   floor_obstacle: {fileID: 445042, guid: 555e5adc3f676d94587c984c5a4fc743, type: 2}
   bomb: {fileID: 497812, guid: 465d3bc596d80274c955041f6304852e, type: 2}
   wall: {fileID: 450612, guid: c3df4ab86a20201458488f589f02e51b, type: 2}
+  wallDestroyable: {fileID: 495372, guid: 70f59c322fc1a7641be4e4dde8db318e, type: 2}
   coin: {fileID: 430010, guid: d59de01ab31f4f04e8fa79c3556dbfb2, type: 2}
   finish: {fileID: 449494, guid: 0f52b88f136f7b1499e0d0b8a1231d48, type: 2}
 --- !u!4 &1999739196

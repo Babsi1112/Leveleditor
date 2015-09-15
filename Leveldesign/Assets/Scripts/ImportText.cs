@@ -8,9 +8,9 @@ public class ImportText : MonoBehaviour {
 	public Transform player;
 	public Transform floor_valid;
 	public Transform floor_obstacle;
-	//public Transform floor_checkpoint;
 	public Transform bomb;
 	public Transform wall;
+	public Transform wallDestroyable;
 	public Transform coin;
 	public Transform finish;
 
@@ -21,13 +21,12 @@ public class ImportText : MonoBehaviour {
 	public const string sbomb = "b";
 	public const string scoin = "c";
 	public const string swall = "W";
+	public const string swalldestroy = "w";
 	public const string sfinish = "Z";
 
 	// Use this for initialization
 	void Start () {
 		string[][] jagged = readFile ();
-		Debug.Log (jagged [0] [0]);
-
 		// create planes based on matrix
 		for (int y = 0; y < jagged.Length; y++) {
 			for (int x = 0; x < jagged[0].Length; x++) {
@@ -55,6 +54,9 @@ public class ImportText : MonoBehaviour {
 					break;
 				case swall:
 					Instantiate (wall, new Vector3 (x, -y, 0), Quaternion.identity);
+					break;
+				case swalldestroy:
+					Instantiate (wallDestroyable, new Vector3 (x, -y, 0), Quaternion.identity);
 					break;
 				case sfloor_checkpoint:
 					//Instantiate (floor_checkpoint, new Vector3 (x, -y, 0), Quaternion.identity);
