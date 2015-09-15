@@ -2,5 +2,5 @@ W W W W W W
 W S 0 0 1 W 
 W 1 1 b 1 W 
 W 1 1 c 0 Z 
-W 0 0 0 0 W 
+W c 0 0 0 W 
 W W w W W W 

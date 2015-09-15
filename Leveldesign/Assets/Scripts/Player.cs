@@ -5,6 +5,10 @@ public class Player : MonoBehaviour {
 
 	public float speed = 7.0f;
 
+	//items
+	private int coins = 0;
+	private int bombs = 0;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -27,10 +31,14 @@ public class Player : MonoBehaviour {
 		if(other.gameObject.CompareTag("coin"))
 		{
 			Destroy(other.gameObject);
+			coins ++;
+			Debug.Log ("coins: " +coins);
 		}
 		if(other.gameObject.CompareTag("bomb"))
 		{
 			Destroy(other.gameObject);
+			bombs++;
+			Debug.Log ("bombs: "+bombs);
 		}
 	}
 }
