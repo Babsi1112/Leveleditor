@@ -6,7 +6,7 @@ public class ImportText : MonoBehaviour {
 	public TextAsset textFile;     // drop your file here in inspector
 	 
 	//commenting to check git
-	//another test for git
+	//another test for git -- works with: git push --all -u
 	public Transform player;
 	public Transform floor_valid;
 	public Transform floor_obstacle;
