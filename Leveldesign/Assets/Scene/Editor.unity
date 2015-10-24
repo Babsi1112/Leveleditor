@@ -97,6 +97,7 @@ GameObject:
   - 92: {fileID: 1958885883}
   - 124: {fileID: 1958885882}
   - 81: {fileID: 1958885881}
+  - 114: {fileID: 1958885886}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -171,51 +172,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1999739194
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1999739196}
-  - 114: {fileID: 1999739195}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1999739195
+--- !u!114 &1958885886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1999739194}
+  m_GameObject: {fileID: 1958885880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cda040ae2869f7a47ba709e6e26f5e41, type: 3}
+  m_Script: {fileID: 11500000, guid: 16dd7f37c08eb3143ac3530e4b4a4cb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textFile: {fileID: 4900000, guid: 3d43d7049412bc649b0f67934f45bf65, type: 3}
-  player: {fileID: 417802, guid: fd214b94404cdb840afe610de1e653e5, type: 2}
-  floor_valid: {fileID: 486546, guid: db53aa6a0828ecf49a7286cfef217b4b, type: 2}
-  floor_obstacle: {fileID: 445042, guid: 555e5adc3f676d94587c984c5a4fc743, type: 2}
-  bomb: {fileID: 497812, guid: 465d3bc596d80274c955041f6304852e, type: 2}
-  wall: {fileID: 450612, guid: c3df4ab86a20201458488f589f02e51b, type: 2}
-  wallDestroyable: {fileID: 495372, guid: 70f59c322fc1a7641be4e4dde8db318e, type: 2}
-  coin: {fileID: 430010, guid: d59de01ab31f4f04e8fa79c3556dbfb2, type: 2}
-  finish: {fileID: 449494, guid: 0f52b88f136f7b1499e0d0b8a1231d48, type: 2}
---- !u!4 &1999739196
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1999739194}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  gameManager: {fileID: 153848, guid: 9e4a437fd824a914db4a0aa0feae1e75, type: 2}

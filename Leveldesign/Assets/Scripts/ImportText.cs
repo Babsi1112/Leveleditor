@@ -1,12 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
+using System; //Tutorial, maybe not needed
+using System.Collections.Generic; //Generic added because Tutorial
 using System.Text.RegularExpressions;
+using Random = UnityEngine.Random; //Tutorial
 
 public class ImportText : MonoBehaviour {
 	public TextAsset textFile;     // drop your file here in inspector
-	 
-	//commenting to check git
-	//another test for git -- works with: git push --all -u
+
 	public Transform player;
 	public Transform floor_valid;
 	public Transform floor_obstacle;
@@ -26,13 +26,31 @@ public class ImportText : MonoBehaviour {
 	public const string swalldestroy = "w";
 	public const string sfinish = "Z";
 
+	//Tutorial
+	//private Transform boardHolder;
+	private List <Vector3> gridPositions = new List<Vector3>(); //List eventuell nur für Random Generation
+
+	void InitialiseList(){
+		gridPositions.Clear ();
+		string[][] levelMap = readFile ();
+		for (int x =1; x < levelMap.Length; x++) {
+			for (int y = 1; y < levelMap[0].Length; y++){
+				gridPositions.Add (new Vector3(x,y,0f));
+			}
+		}
+
+	}
+
 	// Use this for initialization
 	void Start () {
-		string[][] jagged = readFile ();
+
+		//boardHolder = new GameObject ("Board").transform; erstma nicht, vielleicht nötig
+
+		string[][] levelMap = readFile ();
 		// create planes based on matrix
-		for (int y = 0; y < jagged.Length; y++) {
-			for (int x = 0; x < jagged[0].Length; x++) {
-				switch (jagged [y] [x]) {
+		for (int y = 0; y < levelMap.Length; y++) {
+			for (int x = 0; x < levelMap[0].Length; x++) {
+				switch (levelMap [y] [x]) {
 				case sstart:
 					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
 					Instantiate (player, new Vector3 (x, -y, 0), Quaternion.identity);
@@ -73,18 +91,19 @@ public class ImportText : MonoBehaviour {
 			
 		}
 		
+		//function to read the Level file
 		string[][] readFile(){
-		string text = textFile.text;
-		string[] lines = Regex.Split(text, "\n");
-		int rows = lines.Length;
-		
-		string[][] levelBase = new string[rows][];
-		for (int i = 0; i < lines.Length; i++)  {
-			string[] stringsOfLine = Regex.Split(lines[i], " ");
-			levelBase[i] = stringsOfLine;
+			string text = textFile.text;
+			string[] lines = Regex.Split(text, "\n");
+			int rows = lines.Length;
+			
+			string[][] levelBase = new string[rows][];
+			for (int i = 0; i < lines.Length; i++)  {
+				string[] stringsOfLine = Regex.Split(lines[i], " ");
+				levelBase[i] = stringsOfLine;
+			}
+			return levelBase;
 		}
-		return levelBase;
-	}
 	
 	
 }
