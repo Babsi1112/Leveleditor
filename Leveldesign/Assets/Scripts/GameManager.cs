@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour {
 	void InitGame(){
 		//boardScript.Start ();
 	}
-	
+
+	public void GameOver(){
+		enabled = false;
+	}
 	// Update is called once per frame
 	void Update () {
 	

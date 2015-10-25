@@ -26,13 +26,15 @@ public class ImportText : MonoBehaviour {
 	public const string swalldestroy = "w";
 	public const string sfinish = "Z";
 
+	public string[][] levelMap;
+
 	//Tutorial
 	//private Transform boardHolder;
 	private List <Vector3> gridPositions = new List<Vector3>(); //List eventuell nur für Random Generation
 
 	void InitialiseList(){
 		gridPositions.Clear ();
-		string[][] levelMap = readFile ();
+		levelMap = readFile ();
 		for (int x =1; x < levelMap.Length; x++) {
 			for (int y = 1; y < levelMap[0].Length; y++){
 				gridPositions.Add (new Vector3(x,y,0f));
@@ -46,37 +48,37 @@ public class ImportText : MonoBehaviour {
 
 		//boardHolder = new GameObject ("Board").transform; erstma nicht, vielleicht nötig
 
-		string[][] levelMap = readFile ();
+		levelMap = readFile ();
 		// create planes based on matrix
 		for (int y = 0; y < levelMap.Length; y++) {
 			for (int x = 0; x < levelMap[0].Length; x++) {
 				switch (levelMap [y] [x]) {
 				case sstart:
-					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
-					Instantiate (player, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (floor_valid, new Vector3 (x, -y, 0f), Quaternion.identity);
+					Instantiate (player, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;
 				case sbomb:
-					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
-					Instantiate (bomb, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (floor_valid, new Vector3 (x, -y, 0f), Quaternion.identity);
+					Instantiate (bomb, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;
 				case scoin:
-					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
-					Instantiate (coin, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (floor_valid, new Vector3 (x, -y, 0f), Quaternion.identity);
+					Instantiate (coin, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;
 				case sfloor_valid:
-					Instantiate (floor_valid, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (floor_valid, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;
 				case sfinish:
-					Instantiate (finish, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (finish, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;
 				case sfloor_obstacle:
-					Instantiate (floor_obstacle, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (floor_obstacle, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;
 				case swall:
-					Instantiate (wall, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (wall, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;
 				case swalldestroy:
-					Instantiate (wallDestroyable, new Vector3 (x, -y, 0), Quaternion.identity);
+					Instantiate (wallDestroyable, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;
 				case sfloor_checkpoint:
 					//Instantiate (floor_checkpoint, new Vector3 (x, -y, 0), Quaternion.identity);
@@ -85,6 +87,8 @@ public class ImportText : MonoBehaviour {
 			}
 		}
 	}
+
+
 		
 		// Update is called once per frame
 		void Update () {
