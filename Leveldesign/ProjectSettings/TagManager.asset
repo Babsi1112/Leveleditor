@@ -8,6 +8,7 @@ TagManager:
   - bomb
   - Exit
   - Wall
+  - movable
   layers:
   - Default
   - TransparentFX

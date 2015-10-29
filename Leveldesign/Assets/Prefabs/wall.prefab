@@ -42,7 +42,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: .159999996, y: .159999996}
+  m_Size: {x: .899999976, y: .899999976}
 --- !u!114 &11455160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +136,14 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 44113ba96448bfa4d9be9fcfcf3c4ebb,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: .899999976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 186330}

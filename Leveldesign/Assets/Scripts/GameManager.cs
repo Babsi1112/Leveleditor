@@ -5,7 +5,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null; //Singleton Muster
-	public ImportText boardScript;
+	public CreateGrid boardScript;
 
 	// Use this for initialization
 	void Awake () {
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 			Destroy (gameObject);	//Singleton
 
 		DontDestroyOnLoad (gameObject); //Not Destroyed when new scenes are loaded
-		boardScript = GetComponent<ImportText> ();
+		boardScript = GetComponent<CreateGrid> ();
 		InitGame ();
 	}
 

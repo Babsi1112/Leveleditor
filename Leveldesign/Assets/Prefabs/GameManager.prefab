@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 406288}
   - 114: {fileID: 11450788}
   - 114: {fileID: 11476260}
+  - 114: {fileID: 11412798}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -29,6 +30,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11412798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7999d91e78f39914a9e2ccc71dbc5c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 417802, guid: fd214b94404cdb840afe610de1e653e5, type: 2}
+  floor_valid: {fileID: 486546, guid: db53aa6a0828ecf49a7286cfef217b4b, type: 2}
+  floor_obstacle: {fileID: 445042, guid: 555e5adc3f676d94587c984c5a4fc743, type: 2}
+  bomb: {fileID: 497812, guid: 465d3bc596d80274c955041f6304852e, type: 2}
+  wall: {fileID: 450612, guid: c3df4ab86a20201458488f589f02e51b, type: 2}
+  wallDestroyable: {fileID: 495372, guid: 70f59c322fc1a7641be4e4dde8db318e, type: 2}
+  coin: {fileID: 430010, guid: d59de01ab31f4f04e8fa79c3556dbfb2, type: 2}
+  movableWall: {fileID: 469308, guid: 0bc777ae512a46343b55ca4ccc820d8d, type: 2}
+  finish: {fileID: 449494, guid: 0f52b88f136f7b1499e0d0b8a1231d48, type: 2}
+  GridWidth: 0
+  GridHeight: 0
+  importedLevel: {fileID: 0}
 --- !u!114 &11450788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,14 +65,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textFile: {fileID: 4900000, guid: 3d43d7049412bc649b0f67934f45bf65, type: 3}
-  player: {fileID: 417802, guid: fd214b94404cdb840afe610de1e653e5, type: 2}
-  floor_valid: {fileID: 486546, guid: db53aa6a0828ecf49a7286cfef217b4b, type: 2}
-  floor_obstacle: {fileID: 445042, guid: 555e5adc3f676d94587c984c5a4fc743, type: 2}
-  bomb: {fileID: 497812, guid: 465d3bc596d80274c955041f6304852e, type: 2}
-  wall: {fileID: 450612, guid: c3df4ab86a20201458488f589f02e51b, type: 2}
-  wallDestroyable: {fileID: 495372, guid: 70f59c322fc1a7641be4e4dde8db318e, type: 2}
-  coin: {fileID: 430010, guid: d59de01ab31f4f04e8fa79c3556dbfb2, type: 2}
-  finish: {fileID: 449494, guid: 0f52b88f136f7b1499e0d0b8a1231d48, type: 2}
 --- !u!114 &11476260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,6 +88,42 @@ Prefab:
       propertyPath: m_TagString
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: movableWall
+      value: 
+      objectReference: {fileID: 469308, guid: 0bc777ae512a46343b55ca4ccc820d8d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 417802, guid: fd214b94404cdb840afe610de1e653e5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: floor_valid
+      value: 
+      objectReference: {fileID: 486546, guid: db53aa6a0828ecf49a7286cfef217b4b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: floor_obstacle
+      value: 
+      objectReference: {fileID: 445042, guid: 555e5adc3f676d94587c984c5a4fc743, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 497812, guid: 465d3bc596d80274c955041f6304852e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 450612, guid: c3df4ab86a20201458488f589f02e51b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: wallDestroyable
+      value: 
+      objectReference: {fileID: 495372, guid: 70f59c322fc1a7641be4e4dde8db318e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: coin
+      value: 
+      objectReference: {fileID: 430010, guid: d59de01ab31f4f04e8fa79c3556dbfb2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 449494, guid: 0f52b88f136f7b1499e0d0b8a1231d48, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 153848}
