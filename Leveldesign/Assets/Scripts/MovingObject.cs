@@ -34,11 +34,12 @@ public abstract class MovingObject : MonoBehaviour {
 			
 			//Recalculate the remaining distance after moving.
 			sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-			
+
 			//Return and loop until sqrRemainingDistance is close enough to zero to end the function
 			yield return null;
 		}
 	}
+	
 
 	//Move returns true if it is able to move and false if not. 
 	//Move takes parameters for x direction, y direction and a RaycastHit2D to check collision.
@@ -93,13 +94,15 @@ public abstract class MovingObject : MonoBehaviour {
 		T hitComponent = hit.transform.GetComponent <T> ();
 		
 		//If canMove is false and hitComponent is not equal to null, meaning MovingObject is blocked and has hit something it can interact with.
-		//if(!canMove && hitComponent != null)
+		if(!canMove && hitComponent != null)
 			
 			//Call the OnCantMove function and pass it hitComponent as a parameter.
-			//OnCantMove (hitComponent);
+			OnCantMove (hitComponent);
 	}
 
-	//protected abstract void OnCantMove <T> (T component)
-	//	where T : Component;
+	//The abstract modifier indicates that the thing being modified has a missing or incomplete implementation.
+	//OnCantMove will be overriden by functions in the inheriting classes.
+	protected abstract void OnCantMove <T> (T component)
+		where T : Component;
 	
 }

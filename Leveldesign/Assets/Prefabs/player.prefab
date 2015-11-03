@@ -71,6 +71,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842fe5a4a25d18b47bbe742a4715ff65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveTime: .100000001
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  restartLevelDelay: 1
+  itemText: {fileID: 0}
 --- !u!212 &21208932
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -193,6 +199,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 621284688e4cdbe49943cf6355aa9d24,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157042}

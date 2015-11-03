@@ -33,15 +33,15 @@ public class CreateGrid : MonoBehaviour {
 
 	public ImportText importedLevel;
 
-	void Awake(){
+	/*void Awake(){
 		CreateLevel ();
-	}
+	}*/
 
 	// Use this for initialization
-	void CreateLevel () {
+	public void CreateLevel (int level) {
 		importedLevel = GetComponent<ImportText> ();
 
-		levelMap = importedLevel.readFile ();
+		levelMap = importedLevel.readFile (level);
 		GridWidth = levelMap [0].Length;
 		GridHeight = levelMap.Length;
 
