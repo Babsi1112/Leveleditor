@@ -11,7 +11,7 @@ public class Player : MovingObject
 	//public int wallDamage = 1;                  //How much damage a player does to a wall when chopping it.
 	private int coins = 0;
 	private int bombs = 0;
-	public Text itemText;
+	private Text itemText;
 	
 	//private Animator animator;                  //Used to store a reference to the Player's animator component.
 	//private int food;                           //Used to store player food points total during level.
@@ -24,9 +24,10 @@ public class Player : MovingObject
 		//animator = GetComponent<Animator>();
 		
 		//Get the current food point total stored in GameManager.instance between levels.
-		//food = GameManager.instance.playerFoodPoints;
-
-		//itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
+		bombs = GameManager.instance.playerBombs;
+		coins = GameManager.instance.playerCoins;
+		itemText = GameObject.Find ("itemText").GetComponent<Text> ();
+		itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
 		
 		//Call the Start function of the MovingObject base class.
 		base.Start ();
@@ -37,7 +38,8 @@ public class Player : MovingObject
 	private void OnDisable ()
 	{
 		//When Player object is disabled, store the current local food total in the GameManager so it can be re-loaded in next level.
-		//GameManager.instance.playerFoodPoints = food;
+		GameManager.instance.playerBombs = bombs;
+		GameManager.instance.playerCoins = coins;
 	}
 	
 	
@@ -111,7 +113,7 @@ public class Player : MovingObject
 		{
 			hitWall.DamageWall (1);
 			bombs--;
-			//itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
+			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
 		}
 		
 		//Set the attack trigger of the player's animation controller in order to play the player's attack animation.
@@ -135,14 +137,14 @@ public class Player : MovingObject
 		{
 			Destroy(other.gameObject);
 			coins ++;
-			//itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
+			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
 			Debug.Log ("coins: " +coins);
 		}
 		else if(other.gameObject.CompareTag("bomb"))
 		{
 			Destroy(other.gameObject);
 			bombs++;
-			//itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
+			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
 			Debug.Log ("bombs: "+bombs);
 		}
 	}

@@ -25,17 +25,18 @@ public class Wall : MovingObject{
 	
 	
 	//MoveEnemy is called by the GameManger each turn to tell each Enemy to try to move towards the player.
-	public void MoveWall ()
+	public void MoveWall (int xDir, int yDir)
 	{
 		//Declare variables for X and Y axis move directions, these range from -1 to 1.
 		//These values allow us to choose between the cardinal directions: up, down, left and right.
-		int xDir = 0;
+		/*int xDir = 0;
 		int yDir = 0;
 
 		xDir = Random.Range (-1, 1);
 
-		if (xDir != 0)
-			yDir = Random.Range(-1,1);
+
+		if (xDir == 0)
+			yDir = Random.Range(-1,1);*/
 		
 		//Call the AttemptMove function and pass in the generic parameter Player, because Enemy is moving and expecting to potentially encounter a Player
 		AttemptMove <Player> (xDir, yDir);

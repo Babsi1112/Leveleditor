@@ -49,12 +49,10 @@ public class CreateGrid : MonoBehaviour {
 
 		// create planes based on matrix
 		for (int y = 0; y < GridHeight; y++) {
-			for (int x = 0; x < GridWidth; x++) {
+			for (int x = 0; x < GridWidth-1; x++) {
 
 				//Spawn floor everywhere
 				Instantiate (floor_valid, new Vector3 (x, -y, 0f), Quaternion.identity);
-
-				Grid[x,y] = levelMap [y] [x]; //Doppelt??
 
 				switch (levelMap [y] [x]) {
 				case sstart:
@@ -86,9 +84,5 @@ public class CreateGrid : MonoBehaviour {
 		}
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

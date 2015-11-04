@@ -8,12 +8,16 @@ public class GameManager : MonoBehaviour {
 
 	public float levelStartDelay = 2f;
 	public float turnDelay = 0.1f;                          //Delay between each Player turn.
-	public float wallsDelay = 5f;
+	public float wallsDelay = 0.1f;
 	public static GameManager instance = null; //Singleton Muster
 	[HideInInspector] public bool playersTurn = true;       //Boolean to check if it's players turn, hidden in inspector but public
 	public CreateGrid boardScript;
 
+	public int playerBombs = 0;
+	public int playerCoins = 0;
+
 	private Text levelText;
+	private Text itemText;
 	private GameObject levelImage;
 	private int level = 1;                                  //Current level number, expressed in game as "Day 1".
 	//private List<Enemy> enemies;                          //List of all Enemy units, used to issue them move commands.
@@ -43,7 +47,8 @@ public class GameManager : MonoBehaviour {
 
 	void InitGame(){
 		doingSetup = true;
-
+		//itemText = GameObject.Find ("itemText").GetComponent<Text> ();
+		//itemText.text = "";
 		levelImage = GameObject.Find ("Levelimage");
 		levelText = GameObject.Find ("Leveltext").GetComponent<Text> ();
 		levelText.text = "Level " + level;
@@ -62,6 +67,9 @@ public class GameManager : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+
+			if (!wallsMoving)
+				StartCoroutine (MoveWalls());
 			//Check that playersTurn or enemiesMoving or doingSetup are not currently true.
 			if(playersTurn || enemiesMoving || doingSetup)
 				
@@ -71,9 +79,7 @@ public class GameManager : MonoBehaviour {
 			//Start moving enemies.
 			StartCoroutine (MoveEnemies ());
 
-			if (wallsMoving)
-				return;
-			StartCoroutine (MoveWalls());
+			
 		}
 		
 		//Call this to add the passed in Enemy to the List of Enemy objects.
@@ -137,12 +143,20 @@ public class GameManager : MonoBehaviour {
 		//Wait for turnDelay seconds between moves, replaces delay caused by enemies moving when there are none.
 		//yield return new WaitForSeconds(turnDelay);
 		//}
+
+		int xDir = 0;
+		int yDir = 0;
+		
+		xDir = Random.Range (-1, 2);
+		
+		if (xDir == 0)
+			yDir = Random.Range(-1,2);
 		
 		//Loop through List of Enemy objects.
 		for (int i = 0; i < walls.Count; i++)
 		{
 			//Call the MoveEnemy function of Enemy at index i in the enemies List.
-			walls[i].MoveWall ();
+			walls[i].MoveWall (xDir,yDir);
 			
 			//Wait for Enemy's moveTime before moving next Enemy, 
 			//yield return new WaitForSeconds(enemies[i].moveTime);

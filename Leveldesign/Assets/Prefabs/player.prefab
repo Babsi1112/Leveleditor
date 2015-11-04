@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11467800}
   - 61: {fileID: 6115194}
   - 50: {fileID: 5084880}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157042}
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -76,7 +76,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   restartLevelDelay: 1
-  itemText: {fileID: 0}
 --- !u!212 &21208932
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -176,7 +175,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
@@ -201,8 +200,13 @@ Prefab:
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_Mass
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: itemText
+      value: 
+      objectReference: {fileID: 11496534, guid: fe019c1e51a0341498dce5eb017d67d1,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157042}
