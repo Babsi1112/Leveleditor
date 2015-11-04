@@ -1,6 +1,9 @@
-W W W W W W W W 
-S 0 0 0 0 1 0 W 
-W 1 1 b 1 1 0 W 
-W 1 1 c 0 0 0 Z 
-W c 0 0 0 1 0 W 
-W W w W W W W W
+W W W W W W W W W W W W 
+W c 0 0 W b 0 0 0 w 0 Z 
+W 0 S W 0 c 0 W 0 1 w W 
+W 1 1 0 0 W 0 W 0 0 0 W 
+W 0 c W c W w 0 0 1 0 W 
+W 0 W 1 W b 1 0 0 W W W 
+W c 0 0 0 0 W 0 W c c W 
+W c 0 c 0 0 0 0 0 c b W 
+W W W W W W W W W W W W 
