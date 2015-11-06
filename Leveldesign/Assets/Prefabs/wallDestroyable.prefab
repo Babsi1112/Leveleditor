@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e8a55687db7a345990d157ee6565ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmgSprite: {fileID: 21300006, guid: d1dec76092b3eea45bff25abe43f0321, type: 3}
   hp: 1
 --- !u!212 &21220214
 SpriteRenderer:
@@ -140,6 +141,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: WallDestroy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: dmgSprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d1dec76092b3eea45bff25abe43f0321,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: hp
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

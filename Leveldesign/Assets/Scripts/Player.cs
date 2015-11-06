@@ -111,7 +111,7 @@ public class Player : MovingObject
 		//Call the DamageWall function of the Wall we are hitting.
 		if (bombs > 0) 
 		{
-			hitWall.DamageWall (1);
+			StartCoroutine (hitWall.DamageWall (1));
 			bombs--;
 			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
 		}

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 
 	public float levelStartDelay = 2f;
 	public float turnDelay = 0.1f;                          //Delay between each Player turn.
-	public float wallsDelay = 0.1f;
+	public float wallsDelay = 5.0f;
 	public static GameManager instance = null; //Singleton Muster
 	[HideInInspector] public bool playersTurn = true;       //Boolean to check if it's players turn, hidden in inspector but public
 	public CreateGrid boardScript;
@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour {
 		wallsMoving = true;
 		
 		//Wait for turnDelay seconds, defaults to .1 (100 ms).
-		yield return new WaitForSeconds(wallsDelay);
+		yield return new WaitForSeconds(5.0f);
 		
 		//If there are no enemies spawned (IE in first level):
 		//if (enemies.Count == 0) 

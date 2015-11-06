@@ -1,12 +1,9 @@
 using UnityEngine;
-using System.Collections.Generic; //Generic added because Tutorial
+using System.Collections;
 using System.Text.RegularExpressions;
 
 public class ImportText : MonoBehaviour {
-	public TextAsset textFile;     // drop your file here in inspector
-	//private static int level = 1;
-
-
+	public TextAsset textFile;   
 		
 		//function to read the Level file
 		public string[][] readFile(int level){
