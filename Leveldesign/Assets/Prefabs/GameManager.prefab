@@ -54,6 +54,8 @@ MonoBehaviour:
   coin: {fileID: 430010, guid: d59de01ab31f4f04e8fa79c3556dbfb2, type: 2}
   movableWall: {fileID: 469308, guid: 0bc777ae512a46343b55ca4ccc820d8d, type: 2}
   finish: {fileID: 449494, guid: 0f52b88f136f7b1499e0d0b8a1231d48, type: 2}
+  key: {fileID: 422292, guid: d00b31f6f67139f4883a64577765377b, type: 2}
+  door: {fileID: 460156, guid: 030af1c255905b14987cd3e0e01af61d, type: 2}
   GridWidth: 0
   GridHeight: 0
   importedLevel: {fileID: 0}
@@ -88,7 +90,8 @@ MonoBehaviour:
   boardScript: {fileID: 0}
   playerBombs: 0
   playerCoins: 0
-  playerLife: 0
+  playerLife: 10
+  playerKeys: 0
   level: 1
 --- !u!1001 &100100000
 Prefab:
@@ -162,6 +165,18 @@ Prefab:
       propertyPath: floorTiles.Array.data[3]
       value: 
       objectReference: {fileID: 164450, guid: b003b0c1f73830f449dbc3ae3d5225eb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 422292, guid: d00b31f6f67139f4883a64577765377b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 460156, guid: 030af1c255905b14987cd3e0e01af61d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: playerLife
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 153848}

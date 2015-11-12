@@ -12,6 +12,8 @@ public class CreateGrid : MonoBehaviour {
 	public Transform coin;
 	public Transform movableWall;
 	public Transform finish;
+	public Transform key;
+	public Transform door;
 	
 	public const string sfloor_valid = "0";
 	public const string sfloor_obstacle = "1";
@@ -23,6 +25,8 @@ public class CreateGrid : MonoBehaviour {
 	public const string swalldestroy = "w";
 	public const string sfinish = "Z";
 	public const string smovableWall = "m";
+	public const string skey = "k";
+	public const string sdoor = "d";
 
 
 	public int GridWidth;
@@ -84,6 +88,12 @@ public class CreateGrid : MonoBehaviour {
 					break;
 				case smovableWall:
 					Instantiate (movableWall, new Vector3 (x, -y, 0), Quaternion.identity);
+					break;
+				case skey:
+					Instantiate (key, new Vector3 (x, -y, 0), Quaternion.identity);
+					break;
+				case sdoor:
+					Instantiate (door, new Vector3 (x, -y, 0), Quaternion.identity);
 					break;
 				}
 			}

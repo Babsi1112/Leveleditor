@@ -12,6 +12,7 @@ public class Player : MovingObject
 	public int lp = 10;
 	private int coins = 0;
 	private int bombs = 0;
+	private int keys = 0;
 	private Text itemText;
 
 
@@ -29,8 +30,10 @@ public class Player : MovingObject
 		//Get the current food point total stored in GameManager.instance between levels.
 		bombs = GameManager.instance.playerBombs;
 		coins = GameManager.instance.playerCoins;
+		keys = GameManager.instance.playerKeys;
+		lp = GameManager.instance.playerLife;
 		itemText = GameObject.Find ("itemText").GetComponent<Text> ();
-		itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
+		itemText.text = "Bombs: " + bombs + ", Coins: " + coins + " Keys: " + keys;
 		
 		//Call the Start function of the MovingObject base class.
 		base.Start ();
@@ -43,6 +46,7 @@ public class Player : MovingObject
 		//When Player object is disabled, store the current local food total in the GameManager so it can be re-loaded in next level.
 		GameManager.instance.playerBombs = bombs;
 		GameManager.instance.playerCoins = coins;
+		GameManager.instance.playerKeys = keys;
 		GameManager.instance.playerLife = lp;
 	}
 	
@@ -111,13 +115,21 @@ public class Player : MovingObject
 	{
 		//Set hitWall to equal the component passed in as a parameter.
 		WallDestroy hitWall = component as WallDestroy;
-		
-		//Call the DamageWall function of the Wall we are hitting.
-		if (bombs > 0) 
-		{
-			StartCoroutine (hitWall.DamageWall (1));
-			bombs--;
-			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
+		Debug.Log (component.tag);
+
+		if (component.tag == "door") {
+			if (keys > 0) {
+				StartCoroutine (hitWall.openDoor (1));
+				keys--;
+				itemText.text = "Bombs: " + bombs + ", Coins: " + coins + " Keys: " + keys;
+			}
+		} else if (component.tag == "WallDestroy") {
+			//Call the DamageWall function of the Wall we are hitting.
+			if (bombs > 0) {
+				StartCoroutine (hitWall.DamageWall (1));
+				bombs--;
+				itemText.text = "Bombs: " + bombs + ", Coins: " + coins + " Keys: " + keys;
+			}
 		}
 		
 		//Set the attack trigger of the player's animation controller in order to play the player's attack animation.
@@ -138,13 +150,17 @@ public class Player : MovingObject
 			enabled = false;
 		} else if (other.gameObject.CompareTag ("coin")) {
 			Destroy (other.gameObject);
-			LoseLife (1);
-			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
-			Debug.Log ("Life: " + lp);
+			coins++;
+			itemText.text = "Bombs: " + bombs + ", Coins: " + coins + " Keys: " + keys;
 		} else if (other.gameObject.CompareTag ("bomb")) {
 			Destroy (other.gameObject);
 			bombs++;
-			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
+			itemText.text = "Bombs: " + bombs + ", Coins: " + coins + " Keys: " + keys;
+		}
+		else if (other.gameObject.CompareTag ("key")) {
+			Destroy (other.gameObject);
+			keys++;
+			itemText.text = "Bombs: " + bombs + ", Coins: " + coins + " Keys: " + keys;
 		}
 	}
 	

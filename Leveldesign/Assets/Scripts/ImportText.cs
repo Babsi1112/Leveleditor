@@ -8,6 +8,8 @@ public class ImportText : MonoBehaviour {
 		//function to read the Level file
 		public string[][] readFile(int level){
 			TextAsset bindata= Resources.Load("level"+level.ToString()) as TextAsset;
+
+			//TextAsset bindata= Resources.Load("Testlevel") as TextAsset;
 			string textRead = bindata.text;
 			string[] lines = Regex.Split(textRead, "\n");
 			int rows = lines.Length;

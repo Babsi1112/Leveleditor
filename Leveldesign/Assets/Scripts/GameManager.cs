@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour {
 
 	public int playerBombs = 0;
 	public int playerCoins = 0;
-	public int playerLife = 0;
+	public int playerLife = 10;
+	public int playerKeys = 0;
 
 	private Text levelText;
 	private Text itemText;
