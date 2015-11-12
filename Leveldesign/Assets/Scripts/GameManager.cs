@@ -15,11 +15,12 @@ public class GameManager : MonoBehaviour {
 
 	public int playerBombs = 0;
 	public int playerCoins = 0;
+	public int playerLife = 0;
 
 	private Text levelText;
 	private Text itemText;
 	private GameObject levelImage;
-	private int level = 1;                                  //Current level number, expressed in game as "Day 1".
+	public int level = 1;                                  //Current level number, expressed in game as "Day 1".
 	//private List<Enemy> enemies;                          //List of all Enemy units, used to issue them move commands.
 	private List<Wall> walls;
 	private bool enemiesMoving; 							//Boolean to check if enemies are moving.
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void OnLevelWasLoaded(int index){
-		level++;
+		//level++;
 		InitGame ();
 	}
 
@@ -63,7 +64,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void GameOver(){
-		enabled = false;
+		Debug.Log ("gameOver");
+		//enabled = false;
+		Application.LoadLevel (Application.loadedLevel);
 	}
 	// Update is called once per frame
 	void Update () {

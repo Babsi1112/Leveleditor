@@ -4,7 +4,7 @@ using System.Collections;
 public class CreateGrid : MonoBehaviour {
 
 	public Transform player;
-	public Transform floor_valid;
+	public GameObject[] floorTiles;
 	public Transform floor_obstacle;
 	public Transform bomb;
 	public Transform wall;
@@ -33,6 +33,8 @@ public class CreateGrid : MonoBehaviour {
 
 	public ImportText importedLevel;
 
+	public Vector3 playerStartPos;
+
 	/*void Awake(){
 		CreateLevel ();
 	}*/
@@ -52,12 +54,16 @@ public class CreateGrid : MonoBehaviour {
 			for (int x = 0; x < GridWidth-1; x++) {
 
 				//Spawn floor everywhere
-				Instantiate (floor_valid, new Vector3 (x, -y, 0f), Quaternion.identity);
+				GameObject toInstantiate = floorTiles[Random.Range (0,floorTiles.Length)];
+				Instantiate (toInstantiate, new Vector3 (x, -y, 0f), Quaternion.identity);
 
 				switch (levelMap [y] [x]) {
 				case sstart:
+				{
 					Instantiate (player, new Vector3 (x, -y, 0f), Quaternion.identity);
+					playerStartPos = new Vector3 (x,-y,0f);
 					break;
+				}
 				case sbomb:
 					Instantiate (bomb, new Vector3 (x, -y, 0f), Quaternion.identity);
 					break;

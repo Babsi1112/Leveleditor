@@ -42,7 +42,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 417802, guid: fd214b94404cdb840afe610de1e653e5, type: 2}
-  floor_valid: {fileID: 486546, guid: db53aa6a0828ecf49a7286cfef217b4b, type: 2}
+  floorTiles:
+  - {fileID: 134586, guid: db53aa6a0828ecf49a7286cfef217b4b, type: 2}
+  - {fileID: 162804, guid: d3ef43ba1307a45479c21fcc4fe7939f, type: 2}
+  - {fileID: 149320, guid: c01dec8be6bad8540b940528ad01a0f3, type: 2}
+  - {fileID: 164450, guid: b003b0c1f73830f449dbc3ae3d5225eb, type: 2}
   floor_obstacle: {fileID: 445042, guid: 555e5adc3f676d94587c984c5a4fc743, type: 2}
   bomb: {fileID: 497812, guid: 465d3bc596d80274c955041f6304852e, type: 2}
   wall: {fileID: 450612, guid: c3df4ab86a20201458488f589f02e51b, type: 2}
@@ -53,6 +57,7 @@ MonoBehaviour:
   GridWidth: 0
   GridHeight: 0
   importedLevel: {fileID: 0}
+  playerStartPos: {x: 0, y: 0, z: 0}
 --- !u!114 &11450788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,7 +81,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2181784f6300f49af8d86dd7c0baee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelStartDelay: 2
+  turnDelay: .100000001
+  wallsDelay: 5
+  playersTurn: 1
   boardScript: {fileID: 0}
+  playerBombs: 0
+  playerCoins: 0
+  playerLife: 0
+  level: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -84,6 +97,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: floorTiles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: GameController
@@ -124,6 +141,27 @@ Prefab:
       propertyPath: finish
       value: 
       objectReference: {fileID: 449494, guid: 0f52b88f136f7b1499e0d0b8a1231d48, type: 2}
+    - target: {fileID: 0}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 11467800, guid: fd214b94404cdb840afe610de1e653e5,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: floorTiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 134586, guid: db53aa6a0828ecf49a7286cfef217b4b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: floorTiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 162804, guid: d3ef43ba1307a45479c21fcc4fe7939f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: floorTiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 149320, guid: c01dec8be6bad8540b940528ad01a0f3, type: 2}
+    - target: {fileID: 0}
+      propertyPath: floorTiles.Array.data[3]
+      value: 
+      objectReference: {fileID: 164450, guid: b003b0c1f73830f449dbc3ae3d5225eb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 153848}

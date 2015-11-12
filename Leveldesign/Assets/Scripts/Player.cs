@@ -9,10 +9,13 @@ public class Player : MovingObject
 	//public int pointsPerFood = 10;              //Number of points to add to player food points when picking up a food object.
 	//public int pointsPerSoda = 20;              //Number of points to add to player food points when picking up a soda object.
 	//public int wallDamage = 1;                  //How much damage a player does to a wall when chopping it.
+	public int lp = 10;
 	private int coins = 0;
 	private int bombs = 0;
 	private Text itemText;
-	
+
+
+	public CreateGrid gridRef;
 	//private Animator animator;                  //Used to store a reference to the Player's animator component.
 	//private int food;                           //Used to store player food points total during level.
 	
@@ -22,7 +25,7 @@ public class Player : MovingObject
 	{
 		//Get a component reference to the Player's animator component
 		//animator = GetComponent<Animator>();
-		
+	
 		//Get the current food point total stored in GameManager.instance between levels.
 		bombs = GameManager.instance.playerBombs;
 		coins = GameManager.instance.playerCoins;
@@ -40,6 +43,7 @@ public class Player : MovingObject
 		//When Player object is disabled, store the current local food total in the GameManager so it can be re-loaded in next level.
 		GameManager.instance.playerBombs = bombs;
 		GameManager.instance.playerCoins = coins;
+		GameManager.instance.playerLife = lp;
 	}
 	
 	
@@ -125,27 +129,22 @@ public class Player : MovingObject
 	private void OnTriggerEnter2D (Collider2D other)
 	{
 		//Check if the tag of the trigger collided with is Exit.
-		if(other.tag == "Exit")
-		{
+		if (other.tag == "Exit") {
+			GameManager.instance.level ++;
 			//Invoke the Restart function to start the next level with a delay of restartLevelDelay (default 1 second).
 			Invoke ("Restart", restartLevelDelay);
 			
 			//Disable the player object since level is over.
 			enabled = false;
-		}
-		else if(other.gameObject.CompareTag("coin"))
-		{
-			Destroy(other.gameObject);
-			coins ++;
+		} else if (other.gameObject.CompareTag ("coin")) {
+			Destroy (other.gameObject);
+			LoseLife (1);
 			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
-			Debug.Log ("coins: " +coins);
-		}
-		else if(other.gameObject.CompareTag("bomb"))
-		{
-			Destroy(other.gameObject);
+			Debug.Log ("Life: " + lp);
+		} else if (other.gameObject.CompareTag ("bomb")) {
+			Destroy (other.gameObject);
 			bombs++;
 			itemText.text = "Bombs: " + bombs + ", Coins: " + coins;
-			Debug.Log ("bombs: "+bombs);
 		}
 	}
 	
@@ -160,30 +159,32 @@ public class Player : MovingObject
 	
 	//LoseFood is called when an enemy attacks the player.
 	//It takes a parameter loss which specifies how many points to lose.
-	public void LoseFood (int loss)
+	public void LoseLife (int loss)
 	{
 		//Set the trigger for the player animator to transition to the playerHit animation.
 		//animator.SetTrigger ("playerHit");
 		
 		//Subtract lost food points from the players total.
-		//food -= loss;
+		lp -= loss;
 		
 		//Check to see if game has ended.
-		//CheckIfGameOver ();
+		CheckIfGameOver ();
+		/*gridRef = GameManager.instance.GetComponent<CreateGrid>();
+		SmoothMovement (gridRef.playerStartPos);
+		//transform.position = gridRef.playerStartPos;*/
 	}
 	
 	
 	//CheckIfGameOver checks if the player is out of food points and if so, ends the game.
-	/*private void CheckIfGameOver ()
+	private void CheckIfGameOver ()
 	{
 		//Check if food point total is less than or equal to zero.
-		if (food <= 0) 
-		{
-			
+		if (lp <= 0) 
+		{			
 			//Call the GameOver function of GameManager.
 			GameManager.instance.GameOver ();
 		}
-	}*/
+	}
 
 }
 
