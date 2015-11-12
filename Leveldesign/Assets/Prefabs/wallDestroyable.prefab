@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e8a55687db7a345990d157ee6565ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgSprite: {fileID: 21300006, guid: d1dec76092b3eea45bff25abe43f0321, type: 3}
+  dmgSprite: {fileID: 21300006, guid: 35c1257edfdfb714da03889ecbe27aed, type: 3}
   hp: 1
 --- !u!212 &21220214
 SpriteRenderer:
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1096686591
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 115ac983d21dfa8468349c1a09175b89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b7d4c8d151521141bbc8c2d51facf86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -96,7 +96,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 115ac983d21dfa8468349c1a09175b89,
+      objectReference: {fileID: 21300000, guid: 3b7d4c8d151521141bbc8c2d51facf86,
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
@@ -145,7 +145,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: dmgSprite
       value: 
-      objectReference: {fileID: 21300006, guid: d1dec76092b3eea45bff25abe43f0321,
+      objectReference: {fileID: 21300006, guid: 35c1257edfdfb714da03889ecbe27aed,
         type: 3}
     - target: {fileID: 0}
       propertyPath: hp
