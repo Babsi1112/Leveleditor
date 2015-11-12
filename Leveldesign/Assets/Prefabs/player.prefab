@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.16617608, y: -7.67405891, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,6 +76,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   restartLevelDelay: 1
+  lp: 10
+  gridRef: {fileID: 0}
 --- !u!212 &21208932
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,8 +102,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2083198409
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 621284688e4cdbe49943cf6355aa9d24, type: 3}
-  m_Color: {r: .386594474, g: .0888841078, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ec5dff8c1b39d2344aa1a30aed582191, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -196,7 +198,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 621284688e4cdbe49943cf6355aa9d24,
+      objectReference: {fileID: 21300000, guid: ec5dff8c1b39d2344aa1a30aed582191,
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_Mass
@@ -207,6 +209,22 @@ Prefab:
       value: 
       objectReference: {fileID: 11496534, guid: fe019c1e51a0341498dce5eb017d67d1,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157042}
